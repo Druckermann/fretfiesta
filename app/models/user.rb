@@ -6,4 +6,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :listings
   has_many :bookings
+  validates :first_name, :last_name, :email, :bio, :location, presence: true
 end
