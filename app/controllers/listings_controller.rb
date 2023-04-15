@@ -1,4 +1,7 @@
 class ListingsController < ApplicationController
+  # skip_before_action :authenticate_user!, only:[:index, :show]
+  # before_action :set_listing, only: %i[show destroy edit]
+
   def index
     @listings = Listing.all
   end
@@ -13,10 +16,32 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
+    @listing.user = current_user
     if @listing.save
       redirect_to @listing
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def update
+    @listing = Listing.find(params[:id])
+    @listing.update(listing_params)
+    redirect_to listing_path(@listing)
+  end
+
+  def destroy
+    @listing.destroy
+    redirect_to_listings_path
+  end
+
+  private
+
+  def set_listing
+    @listing = Listing.find(params[:id])
+  end
+
+  def listing_params
+    params.require(:listing).permit(:name, :category, :price, :description, :location, :rating)
   end
 end
