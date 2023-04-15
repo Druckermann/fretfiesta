@@ -14,19 +14,19 @@ puts "Creating database..."
 # Note: we would need to adjust model for inclusion of rating.
 # Note: we need a "$" and a "per day" for each price in the view
 
-User.create(id: 1, first_name: "John", last_name: "Doe", email: "johndoe@example.com", bio: "I've been playing music for 10 years and I love rock bands like Led Zeppelin and The Beatles.", location: "4053", rating: 8)
+User.create(id: 1, first_name: "John", last_name: "Doe", email: "johndoe@example.com", location: "4053")
 
-User.create(id: 2, first_name: "Emily", last_name: "Chen", email: "emilychen@example.com", bio: "I've been playing music for 3 years and I love pop and R&B music. I enjoy singing and playing the guitar.", location: "4000", rating: 10)
+User.create(id: 2, first_name: "Emily", last_name: "Chen", email: "emilychen@example.com", location: "4000")
 
-User.create(id: 3, first_name: "David", last_name: "Nguyen", email: "davidnguyen@example.com", bio: "I have been playing music for 6 years. I'm a big fan of rock and punk bands like Green Day and Blink-182.", location: "4034", rating: 8)
+User.create(id: 3, first_name: "David", last_name: "Nguyen", email: "davidnguyen@example.com", location: "4034")
 
-User.create(id: 4, first_name: "Sophia", last_name: "Kim", email: "sophiakim@example.com", bio: "I've been playing music for 4 years and I love indie and alternative bands. I play the guitar and write my own songs.", location: "4051", rating: 9)
+User.create(id: 4, first_name: "Sophia", last_name: "Kim", email: "sophiakim@example.com", location: "4051")
 
-User.create(id: 5, first_name: "Sarah", last_name: "Johnson", email: "sarahjohnson@example.com", bio: "I'm a pianist/guitarist and have been playing music for 5 years. I enjoy listening to classical music and jazz.", location: "4055", rating: 9)
+User.create(id: 5, first_name: "Sarah", last_name: "Johnson", email: "sarahjohnson@example.com", location: "4055")
 
-User.create(id: 6, first_name: "Daniel", last_name: "Lee", email: "daniellee@example.com", bio: "I'm a bassist and have been playing music for 7 years. I enjoy playing in jazz and funk bands.", location: "4060", rating: 8)
+User.create(id: 6, first_name: "Daniel", last_name: "Lee", email: "daniellee@example.com", location: "4060")
 
-User.create(id: 7, first_name: "Michael", last_name: "Brown", email: "michaelbrown@example.com", bio: "I'm a guitarist and have been playing music for 8 years. I'm a big fan of heavy metal bands like Iron Maiden, Metallica and Slayer.", location: "4171", rating: 7)
+User.create(id: 7, first_name: "Michael", last_name: "Brown", email: "michaelbrown@example.com", location: "4171")
 
 Listing.create(user_id: 1, category: "Electric 6-string guitar", name: "Fender Strat", price: "100", description: "My cherished 1992 Fender Stratocaster is a work of art. The alder body's glossy polyurethane finish showcases its sleek curves, while the maple neck with a rosewood fingerboard feels like pure silk under my fingers. The custom-wound pickups deliver a wide range of tones, from bright and jangly to smooth and soulful. The synchronized tremolo bridge and precise tuning machines make it a joy to play, while the classic design and legendary tone make it a true masterpiece. It's my trusted companion on stage and in the studio, a guitar that inspires me to create music and brings endless joy to my playing.", location: "4053", rating: "8")
 
