@@ -8,25 +8,26 @@
 
 puts "Cleaning database"
 Listing.destroy_all
+User.destroy_all
 
 puts "Creating database..."
 
 # Note: we would need to adjust model for inclusion of rating.
 # Note: we need a "$" and a "per day" for each price in the view
 
-User.create(id: 1, first_name: "John", last_name: "Doe", email: "johndoe@example.com", location: "4053")
+User.create(id: 1, first_name: "John", last_name: "Doe", password: "123456", password_confirmation: "123456", email: "johndoe@example.com", location: "4053")
 
-User.create(id: 2, first_name: "Emily", last_name: "Chen", email: "emilychen@example.com", location: "4000")
+User.create(id: 2, first_name: "Emily", last_name: "Chen", password: "123456", password_confirmation: "123456",  email: "emilychen@example.com", location: "4000")
 
-User.create(id: 3, first_name: "David", last_name: "Nguyen", email: "davidnguyen@example.com", location: "4034")
+User.create(id: 3, first_name: "David", last_name: "Nguyen", password: "123456", password_confirmation: "123456",  email: "davidnguyen@example.com", location: "4034")
 
-User.create(id: 4, first_name: "Sophia", last_name: "Kim", email: "sophiakim@example.com", location: "4051")
+User.create(id: 4, first_name: "Sophia", last_name: "Kim", password: "123456", password_confirmation: "123456",  email: "sophiakim@example.com", location: "4051")
 
-User.create(id: 5, first_name: "Sarah", last_name: "Johnson", email: "sarahjohnson@example.com", location: "4055")
+User.create(id: 5, first_name: "Sarah", last_name: "Johnson", password: "123456", password_confirmation: "123456",  email: "sarahjohnson@example.com", location: "4055")
 
-User.create(id: 6, first_name: "Daniel", last_name: "Lee", email: "daniellee@example.com", location: "4060")
+User.create(id: 6, first_name: "Daniel", last_name: "Lee", password: "123456", password_confirmation: "123456",  email: "daniellee@example.com", location: "4060")
 
-User.create(id: 7, first_name: "Michael", last_name: "Brown", email: "michaelbrown@example.com", location: "4171")
+User.create(id: 7, first_name: "Michael", last_name: "Brown", password: "123456", password_confirmation: "123456",  email: "michaelbrown@example.com", location: "4171")
 
 Listing.create(user_id: 1, category: "Electric 6-string guitar", name: "Fender Strat", price: "100", description: "My cherished 1992 Fender Stratocaster is a work of art. The alder body's glossy polyurethane finish showcases its sleek curves, while the maple neck with a rosewood fingerboard feels like pure silk under my fingers. The custom-wound pickups deliver a wide range of tones, from bright and jangly to smooth and soulful. The synchronized tremolo bridge and precise tuning machines make it a joy to play, while the classic design and legendary tone make it a true masterpiece. It's my trusted companion on stage and in the studio, a guitar that inspires me to create music and brings endless joy to my playing.", location: "4053", rating: "8")
 
@@ -40,6 +41,6 @@ Listing.create(user_id: 5, category: "Classical 6-string guitar", name: "Ramirez
 
 Listing.create(user_id: 6, category: "Electric 4-string bass", name: "Fender Precision Bass", price: "90", description: "My 1960 Fender Precision Bass is a true legend in the world of bass guitars. Its iconic design, with a sleek alder body and a smooth maple neck, is a timeless classic. The split-coil pickup delivers a punchy, defined tone that has defined the sound of modern music. The precision craftsmanship, including the meticulous fretwork and premium hardware, is top-notch. It's a bass guitar that has been the backbone of countless grooves, and its legendary status as the original electric bass guitar cannot be overstated.", location: "4060", rating: "8")
 
-Listing.create(user_id: 7, category: "Electric 7-string guitar", name: "Ibanez Axe", price: "55", description: "My Ibanez RG752AHM FX, a 7-string electric guitar from 2018, is a beast of a guitar. The ash body's striking Open Pore Surreal Blue Burst finish reveals its raw beauty. The Wizard-7 neck with offers lightning-fast playability. The DiMarzio pickups deliver a massive range of tones, from tight and articulate to heavy and crushing. The Gibraltar Standard II-7 bridge ensures rock-solid tuning stability, perfect for low-tuned riffing. It's a guitar that empowers me to explore new sonic territories and create crushing, modern metal tones.", location: "4171", rating: "9")
+Listing.create(user_id: 6, category: "Electric 7-string guitar", name: "Ibanez Axe", price: "55", description: "My Ibanez RG752AHM FX, a 7-string electric guitar from 2018, is a beast of a guitar. The ash body's striking Open Pore Surreal Blue Burst finish reveals its raw beauty. The Wizard-7 neck with offers lightning-fast playability. The DiMarzio pickups deliver a massive range of tones, from tight and articulate to heavy and crushing. The Gibraltar Standard II-7 bridge ensures rock-solid tuning stability, perfect for low-tuned riffing. It's a guitar that empowers me to explore new sonic territories and create crushing, modern metal tones.", location: "4171", rating: "9")
 
 puts "Finished!"
