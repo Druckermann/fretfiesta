@@ -1,8 +1,12 @@
 <h1>Show your listing</h1>
  <div >
       <h5><%= @listing.name %></h5>
-      <h5>category : <%= @listing.category %></h5>
+      <h5><%= @listing.category %></h5>
       <p><%= @listing.description %></p>
+      <p>For 3 nights $<%= @listing.price %></p>
+      <p>Rent from <%= @listing.user.first_name %></p>
+      <p>Postcode <%= @listing.location %></p>
+      <p>This guitar is rated <%= @listing.rating %>/10 by other users</p>
  </div>
 
 <%= link_to "Book now", new_booking_path, class: "btn btn-gradient" %>
