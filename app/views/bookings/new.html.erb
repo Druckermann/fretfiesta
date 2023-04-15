@@ -1,17 +1,22 @@
 <h1>New Booking</h1>
 <br>
 <h2>What you are booking:</h2>
-<%# <%= "#{@listing}%> %>
+<%= "#{@listing} ..." %>
+<br>
 <br>
 <h2>When you are booking:</h2>
-
+...
 <br>
 <h2>Payment details:</h2>
 <p>Enter your bank details so we can take everything...</p>
 <br>
 
-<p>confirm button!</p>
+<%# The route is missing for bookings new! How??? %>
 
 <div class="container">
-  <%# <%= link_to "Go back to listing", listing_path(@listing), class: "btn btn-primary" %>
+  <%= link_to "Send booking request", class: "btn btn-primary" %>
+</div>
+<br>
+<div class="container">
+  <%= link_to "Go back to listings", listings_path, class: "btn btn-primary" %>
 </div>
