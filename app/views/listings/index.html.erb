@@ -1,6 +1,6 @@
-
+<h1>Index</h1>
 <ul>
   <% @listings.each do |listing| %>
-  <li><%= listing %></li>
+    <li><%= link_to listing.name, listing_path(listing) %></li>
   <% end %>
 </ul>
