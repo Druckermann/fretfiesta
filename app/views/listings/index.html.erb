@@ -1,6 +1,11 @@
-<h1>Index</h1>
+<div class="d-flex justify-content-center">
+  <h1>Rent a guitar!</h1>
+</div>
+<div class="container">
 <ul>
   <% @listings.each do |listing| %>
     <li><%= link_to listing.name, listing_path(listing) %></li>
   <% end %>
 </ul>
+
+</div>
