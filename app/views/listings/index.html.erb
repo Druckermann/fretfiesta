@@ -1,2 +1,6 @@
-<h1>FretFiesta</h1>
-<p>Rent a guitar!</p>
+<h1>Index</h1>
+<ul>
+  <% @listings.each do |listing| %>
+    <li><%= link_to listing.name, listing_path(listing) %></li>
+  <% end %>
+</ul>
