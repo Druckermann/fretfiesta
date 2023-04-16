@@ -1,6 +1,6 @@
 <h1>Show your listing</h1>
  <div >
-      <%= image_tag @listing.photo if @listing.photo.attached? %>
+      <%= image_tag @listing.photo, style: 'max-height: 400px;' if @listing.photo.attached? %>
       <h5><%= @listing.name %></h5>
       <h5><%= @listing.category %></h5>
       <p><%= @listing.description %></p>
