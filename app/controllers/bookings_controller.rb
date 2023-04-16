@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @listing = Listing.find(params[:id])
     @booking = Booking.new
   end
 
@@ -20,6 +21,10 @@ class BookingsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def back
+    redirect_back(fallback_location: root_path)
   end
 
   def update
@@ -34,6 +39,16 @@ class BookingsController < ApplicationController
       render :show
     end
   end
+
+
+  private
+
+  def booking_params
+    params.require(:booking).permit(:status, :rent_start, :rent_end, :total_price)
+  end
+end
+
+
   # def approve
     # @booking = Booking.find_by_id(params[:id])
      # @booking.update(state: "approved")
@@ -44,10 +59,3 @@ class BookingsController < ApplicationController
     #    flash[:error] = "Booking not approved"
     #    redirect_to bookings_path
     #  end
-
-  private
-
-  def booking_params
-    params.require(:booking).permit(:status, :rent_start, :rent_end, :total_price)
-  end
-end

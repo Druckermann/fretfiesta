@@ -1,22 +1,22 @@
 <h1>New Booking</h1>
-<br>
-<h2>What you are booking:</h2>
-<%= "#{@listing} ..." %>
-<br>
-<br>
-<h2>When you are booking:</h2>
-...
-<br>
-<h2>Payment details:</h2>
-<p>Enter your bank details so we can take everything...</p>
-<br>
-
-<%# The route is missing for bookings new! How??? %>
+<div>
+  <h2>What you are booking:</h2>
+  <p><%= @listing.name %><p>
+  <p>Rent from <%= @listing.user.first_name %></p>
+  <p>Postcode: <%= @listing.location %><p>
+</div>
+<div>
+  <h2>When you are booking:</h2>
+  ...
+</div>
+<div><h2>Payment details:</h2>
+  <p>Enter your bank details so we can take everything...</p>
+</div>
 
 <div class="container">
   <%= link_to "Send booking request", class: "btn btn-primary" %>
 </div>
 <br>
 <div class="container">
-  <%= link_to "Go back to listings", listings_path, class: "btn btn-primary" %>
+  <%= link_to "Back to listing", :back, class: "btn btn-gradient" %>
 </div>

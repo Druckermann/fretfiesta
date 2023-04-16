@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :listings, only: %i[index show new create]
   resources :bookings, only: %i[index show new create] do
-  # approval booking route
+  # additional routes:
     member do
-      patch :update
+      patch :update # This is for approval route
+      # get :back # This is for a back button route
     end
   end
 end
