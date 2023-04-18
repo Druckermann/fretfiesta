@@ -1,14 +1,22 @@
 <h1>Show your listing</h1>
- <div >
-      <%= image_tag @listing.photo, style: 'max-height: 400px;' if @listing.photo.attached? %>
+<div class="row">
+  <div class="column">
+    <div class="card" style="text-align: center; width: 100%; padding: 0 10px; display: block; margin-bottom: 20px">
+      <div >
+        <%= image_tag @listing.photo, style: 'max-height: 400px;' if @listing.photo.attached? %>
       <h5><%= @listing.name %></h5>
       <h5><%= @listing.category %></h5>
-      <p><%= @listing.description %></p>
+        <div class="column" style="text-align: justify; padding: 0 10 px">
+          <p><%= @listing.description %></p>
+        </div>
       <p>For 3 nights $<%= @listing.price %></p>
       <p>Rent from <%= @listing.user.first_name %></p>
       <p>Postcode: <%= @listing.location %></p>
       <p>This guitar is rated <%= @listing.rating %>/10 by other users</p>
- </div>
+     </div>
+    </div>
+  </div>
+</div>
 
 <%# AT: chnaged this 16/04/23 10:22pm %>
 <%= link_to "Book now", new_booking_path(id: @listing.id), class: "btn btn-gradient" %>
