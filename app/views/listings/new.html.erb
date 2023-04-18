@@ -13,13 +13,11 @@
         <%= f.input :location, label: false, placeholder: "location" %>
         <%= f.input :description, label: false, placeholder: "Add a description of your guitar!" %>
       </div>
-
-       <%# <div class="listing-row">
+      <div class="listing-row">
         <label class="photo-label"></label>
-        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.input :photo, as: :file %>
         <%= f.submit %>
-
-       </div>
+      </div>
       <% end %>
 
 </div>

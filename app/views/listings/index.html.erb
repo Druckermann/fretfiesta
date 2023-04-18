@@ -9,7 +9,9 @@
       <div class="column" style="float:left; width: 100%; padding: 0 10px; display: block; margin-bottom: 20px">
         <div class="card box=shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)" style="padding:16px; text-align: center; background-color: #f1f1f1">
           <%= link_to listing.name, listing_path(listing) %>
-          <%# <%= image_tag("images/#{listing.name}.jpg") %>
+          <% if listing.photo.attached? %>
+           <%= cl_image_tag listing.photo.key, height: 150, width: 150, crop: :fill, class:"mx-auto" %>
+           <% end %>
         </div>
       </div>
     <% end %>

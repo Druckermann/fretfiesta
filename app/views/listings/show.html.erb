@@ -1,11 +1,13 @@
-<h1>Show your listing</h1>
+<div class="column" style="text-align: center">
+  <h1>Guitars</h1>
+</div>
 <div class="row">
   <div class="column">
     <div class="card" style="text-align: center; width: 100%; padding: 0 10px; display: block; margin-bottom: 20px">
       <div >
-        <%= image_tag @listing.photo, style: 'max-height: 400px;' if @listing.photo.attached? %>
       <h5><%= @listing.name %></h5>
       <h5><%= @listing.category %></h5>
+        <%= image_tag @listing.photo, style: 'max-height: 400px;' if @listing.photo.attached? %>
         <div class="column" style="text-align: justify; padding: 0 10 px">
           <p><%= @listing.description %></p>
         </div>
@@ -19,6 +21,8 @@
 </div>
 
 <%# AT: chnaged this 16/04/23 10:22pm %>
-<%= link_to "Book now", new_booking_path(id: @listing.id), class: "btn btn-gradient" %>
+<div class="column" style="text-align: center">
+  <%= link_to "Book now", new_booking_path(id: @listing.id), class: "btn btn-gradient" %>
 
-<%= link_to "Return to guitars", listings_path %>
+  <%= link_to "Return to guitars", listings_path, class: "btn btn-gradient" %>
+</div>
