@@ -1,22 +1,35 @@
-<h1>New Booking</h1>
-<div>
-  <h2>What you are booking:</h2>
-  <p><%= @listing.name %><p>
-  <p>Rent from <%= @listing.user.first_name %></p>
-  <p>Postcode: <%= @listing.location %><p>
-</div>
-<div>
-  <h2>When you are booking:</h2>
-  ...
-</div>
-<div><h2>Payment details:</h2>
-  <p>Enter your bank details so we can take everything...</p>
+
+<div class="container text-center mb-5">
+  <h1>New Booking</h1>
 </div>
 
 <div class="container">
-  <%= link_to "Send booking request", class: "btn btn-primary" %>
-</div>
-<br>
-<div class="container">
-  <%= link_to "Back to listing", :back, class: "btn btn-gradient" %>
+  <div class="listing-details mb-5">
+    <h2>What you are booking:</h2>
+    <p><%= @listing.name %><p>
+    <p>Rent from <%= @listing.user.first_name %></p>
+    <p>Postcode: <%= @listing.location %><p>
+  </div>
+
+  <div class="booking-container mb-5">
+    <h2>When you are booking:</h2>
+    <%= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
+      <%= f.input :rent_start, as: :string, input_html: { data: { flatpickr_target: "rentStart" } } %>
+      <%= f.input :rent_end, as: :string, input_html: { data: { flatpickr_target: "rentEnd" } } %>
+      <%= f.submit 'Submit your booking request' %>
+    <% end %>
+  </div>
+
+  <div class="payment-details mb-5">
+    <h2>Payment details:</h2>
+    <p>Enter your bank details so we can take everything...</p>
+  </div>
+
+
+  <div class="container">
+    <div class="d-flex justify-content-around">
+      <%= link_to "Send booking request", '#', class: "btn btn-primary" %>
+      <%= link_to "Back to listing", :back, class: "btn btn-gradient" %>
+    </div>
+  </div>
 </div>
