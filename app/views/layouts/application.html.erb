@@ -12,6 +12,11 @@
 
   <body>
     <%= render "shared/navbar" %>
+
+    <%# AT: code to run flash messages %>
+    <%= render partial: 'layouts/flash' %>
+
+    <%# Jon's code from Tue 18/04 %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

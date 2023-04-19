@@ -22,7 +22,7 @@
 
 <%# AT: chnaged this 16/04/23 10:22pm %>
 <div class="column" style="text-align: center">
-  <%= link_to "Book now", new_booking_path(id: @listing.id), class: "btn btn-gradient" %>
+  <%= link_to "Book now", new_booking_path(listing_id: @listing.id), class: "btn btn-gradient" %>
 
   <%= link_to "Return to guitars", listings_path, class: "btn btn-gradient" %>
 </div>
