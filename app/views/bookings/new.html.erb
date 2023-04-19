@@ -3,22 +3,40 @@
   <h1>New Booking</h1>
 </div>
 
+<%# AT: used to make flash messages work %>
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
+
 <div class="container">
   <div class="listing-details mb-5">
     <h2>What you are booking:</h2>
     <p><%= @listing.name %><p>
-    <p>Rent from <%= @listing.user.first_name %></p>
+    <p>Total price: $<%= @listing.price %></p>
+    <p>Rent from: <%= @listing.user.first_name %></p>
     <p>Postcode: <%= @listing.location %><p>
   </div>
 
-  <div class="booking-container mb-5">
+<%# Al's code from Wed 19/04 %>
+<div class="booking-container mb-5">
+  <h2>When you are booking:</h2>
+  <%= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
+    <%= f.input :rent_start, as: :string, input_html: { data: { flatpickr_target: "rentStart" } }
+    <%# <%= f.input :rent_end, as: :string, input_html: { data: { flatpickr_target: "rentEnd" } } %> %>
+    <%# <%= f.submit 'Submit your booking request' %> %>
+  <% end %>
+</div>
+
+<%# Jon's code from Tuesday 18/04 %>
+  <%# <div class="booking-container mb-5">
     <h2>When you are booking:</h2>
     <%= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
-      <%= f.input :rent_start, as: :string, input_html: { data: { flatpickr_target: "rentStart" } } %>
-      <%= f.input :rent_end, as: :string, input_html: { data: { flatpickr_target: "rentEnd" } } %>
-      <%= f.submit 'Submit your booking request' %>
-    <% end %>
-  </div>
+      <%# <%= f.input :rent_start, as: :string, input_html: { data: { flatpickr_target: "rentStart" } } %>
+      <%# <%= f.input :rent_end, as: :string, input_html: { data: { flatpickr_target: "rentEnd" } } %>
+      <%# <%= f.submit 'Submit your booking request' %>
+    <%# <% end %>
+  <%# </div>  %>
 
   <div class="payment-details mb-5">
     <h2>Payment details:</h2>
@@ -28,7 +46,7 @@
 
   <div class="container">
     <div class="d-flex justify-content-around">
-      <%= link_to "Send booking request", '#', class: "btn btn-primary" %>
+      <%# <%= link_to "Send booking request", '#', class: "btn btn-primary" %>
       <%= link_to "Back to listing", :back, class: "btn btn-gradient" %>
     </div>
   </div>
