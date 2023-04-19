@@ -1,5 +1,7 @@
 class BookingsController < ApplicationController
   # everything will need authorisation
+  before_action :set_listing
+
   def index
     # authorisation required x2 (listing made and listing wanted)
     @bookings = Booking.all
@@ -16,8 +18,10 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.listing = @listing
     if @booking.save
-      redirect_to @booking
+      redirect_to bookings_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -42,6 +46,10 @@ class BookingsController < ApplicationController
 
 
   private
+
+  def set_listing
+    @listing = Listing.find(params[:id])
+  end
 
   def booking_params
     params.require(:booking).permit(:status, :rent_start, :rent_end, :total_price)
