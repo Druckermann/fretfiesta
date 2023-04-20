@@ -12,8 +12,8 @@
           <p></p>
           <p><%= @listing.description %></p>
         </div>
-      <p>For 3 nights $<%= @listing.price %></p>
-      <p>Rent from <%= @listing.user.first_name %></p>
+      <p>Price per day: $<%= @listing.price %></p>
+      <p>Rent from: <%= @listing.user.first_name %></p>
       <p>Postcode: <%= @listing.location %></p>
       <p>This guitar is rated <%= @listing.rating %>/10 by other users</p>
      </div>
