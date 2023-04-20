@@ -20,9 +20,9 @@
 
 <%# Al's third try on Thu 20/04 %>
 <div class="container">
-  <%= simple_form_for @booking do |f| %>
-    <%= f.input :rent_start, as: :string %>
-    <%= f.input :rent_end, as: :string %>
+  <%= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
+    <%= f.input :rent_start, as: :string, input_html: { data: { flatpickr_target: "rentStart" } } %>
+    <%= f.input :rent_end, as: :string, input_html: { data: { flatpickr_target: "rentEnd" } }  %>
     <%= f.input :listing_id, as: :hidden, input_html: { value: @listing.id } %>
     <%= f.button :submit %>
   <% end %>
