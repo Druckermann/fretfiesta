@@ -64,7 +64,7 @@ class BookingsController < ApplicationController
   #   end
   # end
 
-    def back
+  def back
     redirect_back(fallback_location: root_path)
   end
 
