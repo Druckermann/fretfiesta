@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "Guitar Logo.png" %>
+      <%= image_tag "Guitar Logo.png", style: "margin-right: 10px;" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,13 +12,18 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
+            <%= link_to "#", class: "nav-link" do %>
+              <%= image_tag "Home.png", alt: "Home", class: "mr-2", style: "width: 40px; height: 40px; margin-left: 4px;" %>
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <%= link_to "#", class: "nav-link" do %>
+
+              <%= image_tag "Message.png", alt: "Message", class: "mr-2", style: "width: 50px; height: 40px; margin-right: 4px;" %>
+            <% end %>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "Avatar.jpeg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "Avatar.jpeg", class: "avatar dropdown-toggle" , id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, style: "margin-top: 8px; margin-left: 3px;" %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", "#", class: "dropdown-item" %>
               <%= link_to "List Your Guitar", new_listing_path, class: "dropdown-item" %>
