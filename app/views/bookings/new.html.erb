@@ -22,9 +22,9 @@
 <div class="booking-container mb-5">
   <h2>When you are booking:</h2>
   <%= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
-    <%= f.input :rent_start, as: :string, input_html: { data: { flatpickr_target: "rentStart" } }
-    <%# <%= f.input :rent_end, as: :string, input_html: { data: { flatpickr_target: "rentEnd" } } %> %>
-    <%# <%= f.submit 'Submit your booking request' %> %>
+    <%= f.input :rent_start, as: :string, input_html: { data: { flatpickr_target: "rentStart" } } %>
+    <%= f.input :rent_end, as: :string, input_html: { data: { flatpickr_target: "rentEnd" } } %>
+    <%= f.submit 'Submit your booking request' %>
   <% end %>
 </div>
 
