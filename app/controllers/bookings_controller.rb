@@ -36,10 +36,9 @@ class BookingsController < ApplicationController
   end
 
   def cost
+  end
     # ... the full calculation
     # @booking.total_price = cost # Move this bit up into create
-
-
 
 
   # AT: My third method from Thu 20/04
@@ -92,7 +91,6 @@ class BookingsController < ApplicationController
   #   end
   # end
 
-
   # Jon's method from Tue 18/04
   # def create
   #   @booking = Booking.new(booking_params)
@@ -105,23 +103,22 @@ class BookingsController < ApplicationController
   #   end
   # end
 
-    def back
-      redirect_back(fallback_location: root_path)
-    end
+  def back
+    redirect_back(fallback_location: root_path)
+  end
 
   def update
     @booking = Booking.find(params[:id])
     if @booking.update(booking_params)
       # if @booking.state == "approved"
         # flash[:success] = "Booking successfully approved"
-       redirect_to bookings_path
+      redirect_to bookings_path
     else
       # render # where was the booking update form?
       # flash[:error] = "Booking not approved"
       render :show
     end
   end
-
 
   private
 
@@ -139,12 +136,6 @@ class BookingsController < ApplicationController
   # def booking_params
   #   params.require(:booking).permit(:status, :rent_start, :rent_end)
   # end
-end
-
-
-
-
-
 
   # def approve
     # @booking = Booking.find_by_id(params[:id])
@@ -156,3 +147,4 @@ end
     #    flash[:error] = "Booking not approved"
     #    redirect_to bookings_path
     #  end
+end
