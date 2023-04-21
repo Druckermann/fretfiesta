@@ -1,42 +1,4 @@
-<h1>All Bookings - seller?</h1>
-
-<%# Need to resolve this iteration to include the info in the main code: %>
-  <%# show all the bookings for the seller %>
-  <%# user.first_name, user.last_name, booking.rent_start, booking.rent_end %>
+<h1>All Bookings </h1>
 
 
-
-<%# This also requries the CSS code: %>
-
-<div class="bookings">
-  <% @bookings.each do |booking| %>
-    <div class="booking">
-      <div class='booking-left'>
-        <!-- if you're using cloudinary and activestorage -->
-        <%= cl_image_tag booking.user.photo, class: 'avatar-bordered' %>
-        <div class="booking-info">
-          <div class="booking-info-title">
-            <%= booking.user.name %>
-          </div>
-          <div class="booking-info-details">
-            <%= booking.start_time.strftime('%l:%M %p') %> - <%= booking.end_time.strftime('%l:%M %p') %>
-          </div>
-        </div>
-      </div>
-      <div class="booking-actions">
-        <% if booking.pending? %>
-          <%= simple_form_for booking do |f| %>
-            <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
-            <%= f.submit 'Accept', class: 'btn btn-info' %>
-          <% end %>
-          <%= simple_form_for booking do |f| %>
-            <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
-            <%= f.submit 'Reject', class: 'btn btn-light' %>
-          <% end %>
-        <% else %>
-          <p class='booking-tag'><%= booking.status %></p>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-</div>
+  <%= link_to 'Approve', update_booking_path(booking), class: "button-xs success", method: :post %>
