@@ -3,11 +3,11 @@
 </div>
 <div class="row">
   <div class="column">
-    <div class="card" style="text-align: center; width: 100%; padding: 0 10px; display: block; margin-bottom: 20px">
+    <div class="card" style="text-align: center; width: 100%; padding: 0 10px; display: block; margin-bottom: 20px; border: 2px solid black;">
       <div >
       <h5><%= @listing.name %></h5>
       <h5><%= @listing.category %></h5>
-        <%= image_tag @listing.photo, style: "box-shadow: 5px 5px 3px grey;" "border-radius: 2%;" 'max-height: 300px;' if @listing.photo.attached? %>
+        <%= image_tag @listing.photo, style: "box-shadow: 5px 5px 3px grey;" "border-radius: 2%;" 'max-height: 300px; border: 2px solid black;' if @listing.photo.attached? %>
         <div class="column" style="text-align: justify; padding: 0 10 px">
           <p></p>
           <p><%= @listing.description %></p>
@@ -22,7 +22,7 @@
 </div>
 
 <%# AT: chnaged this 16/04/23 10:22pm %>
-<div class="column" style="text-align: center">
+<div class="column" style="text-align: center;">
   <%= link_to "Book now", new_booking_path(listing_id: @listing.id), class: "btn btn-gradient" %>
 
   <%= link_to "Return to guitars", listings_path, class: "btn btn-gradient" %>
