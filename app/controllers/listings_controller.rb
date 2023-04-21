@@ -4,9 +4,13 @@ class ListingsController < ApplicationController
 
   def index
     @listings = Listing.all
+    if params[:search].present?
+      search_term = params[:search].downcase
+      @listings = @listings.where("lower(name) LIKE ?", "%#{search_term}%")
+    end
   end
 
-  def show
+  def showin
     @listing = Listing.find(params[:id])
   end
 
