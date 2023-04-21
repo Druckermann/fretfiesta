@@ -91,3 +91,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
+
+# AT: Added to try fixing Avatar.jpg error in Heroku Fri 21/04
+config.assets.precompile += %w[*.png *.jpg *.jpeg *.gif]
