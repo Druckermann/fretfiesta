@@ -1,14 +1,20 @@
 <div class="d-flex justify-content-center" style="text-shadow: 2px 2px 5px grey;">
   <h1>Rent a guitar!</h1>
 </div>
+<p><p>
 
+<div class="container" style="text-align: center;">
+<%= form_tag listings_path, method: :get do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search guitars", style: "width: 250px; padding: 10px; margin: 0; display: inline-block;" %>
+  <%= submit_tag "Search", name: nil, class: "btn btn-secondary", style: "margin-left: 10px; font-weight: bold; display: inline-block;" %>
+<% end %>
+<p><p>
 
-<div class="container">
   <div class="row">
     <% @listings.each do |listing| %>
       <div class="column" style="float:left; width: 100%; padding: 0 10px; display: block; margin-bottom: 20px">
         <div class="card box=shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)" style="padding:16px; text-align: center; background-color: #FFFFFF; border: 2px solid black;">
-          <%= link_to listing.name, listing_path(listing) %>
+          <%= link_to listing.name, listing_path(listing), style: "color:black; font-size:18px; font-weight:bold;" %>
           <% if listing.photo.attached? %>
            <%= cl_image_tag listing.photo.key, height: 150, width: 150, crop: :fill, class:"mx-auto", style: "border-radius: 2%;" "box-shadow: 5px 5px 3px grey; border: 2px solid black;" %>
            <% end %>
