@@ -107,16 +107,15 @@ class BookingsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  # AT: Approval method from stackoverflow
   def update
     @booking = Booking.find(params[:id])
     if @booking.update(booking_params)
-      # if @booking.state == "approved"
-        # flash[:success] = "Booking successfully approved"
+      flash[:success] = "Booking successfully approved"
       redirect_to bookings_path
     else
-      # render # where was the booking update form?
-      # flash[:error] = "Booking not approved"
-      render :show
+      flash[:error] = "Booking not approved"
+      redirect_to bookings_path
     end
   end
 
@@ -129,22 +128,10 @@ class BookingsController < ApplicationController
 
   #  AT: temporary params for testing
   def booking_params
-    params.require(:booking).permit(:rent_start, :listing_id)
+    params.require(:booking).permit(:rent_start, :rent_end, :status, :total_price, :user_id, :listing_id)
   end
 
-  # AT: proper params, commented out for testing
-  # def booking_params
-  #   params.require(:booking).permit(:status, :rent_start, :rent_end)
-  # end
 
-  # def approve
-    # @booking = Booking.find_by_id(params[:id])
-     # @booking.update(state: "approved")
-    #  if @booking.state == "approved"
-    #    flash[:success] = "Booking successfully approved"
-    #    redirect_to bookings_path
-    #  else
-    #    flash[:error] = "Booking not approved"
-    #    redirect_to bookings_path
-    #  end
+
+
 end

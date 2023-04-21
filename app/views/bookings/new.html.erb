@@ -24,7 +24,7 @@
     <%= f.input :rent_start, as: :string, input_html: { data: { flatpickr_target: "rentStart" } } %>
     <%= f.input :rent_end, as: :string, input_html: { data: { flatpickr_target: "rentEnd" } }  %>
     <%= f.input :listing_id, as: :hidden, input_html: { value: @listing.id } %>
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>
 </div>
 
@@ -32,11 +32,11 @@
 <%# <div class="booking-container mb-5">
   <h2>When you are booking:</h2>
   <%= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
-    <%# <%= f.input :rent_start, as: :string, input_html: { data: { flatpickr_target: "rentStart" } } %> %>
-    <%# <%= f.input :rent_end, as: :string, input_html: { data: { flatpickr_target: "rentEnd" } } %> %>
-    <%# <%= f.submit 'Submit your booking request' %> %>
-  <%# <% end %> %>
-<%# </div> %> %>
+    <%# <%= f.input :rent_start, as: :string, input_html: { data: { flatpickr_target: "rentStart" } } %>
+    <%# <%= f.input :rent_end, as: :string, input_html: { data: { flatpickr_target: "rentEnd" } } %>
+    <%# <%= f.submit 'Submit your booking request' %>
+  <%# <% end %>
+<%# </div> %>
 
 <%# Jon's code from Tuesday 18/04 %>
   <%# <div class="booking-container mb-5">
@@ -47,7 +47,7 @@
       <%# <%= f.submit 'Submit your booking request' %>
     <%# <% end %>
   <%# </div>  %>
-
+<br>
   <div class="payment-details mb-5">
     <h2>Payment details:</h2>
     <p>Enter your bank details so we can take everything...</p>
