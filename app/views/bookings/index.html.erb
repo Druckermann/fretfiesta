@@ -2,10 +2,10 @@
   <h1>All Bookings </h1>
   <br>
 </div>
-
+<br>
 <div class="container" style="text-align: center;">
   <div class="row">
-    <h2>Pending Bookings</h2>
+    <h2>My listings</h2>
     <% if @incoming_bookings.where(status: 'pending').any?  %>
       <% @incoming_bookings.where(status: 'pending').each do |booking| %>
         <div class="column" style="float:left; width: 100%; padding: 0 10px; display: block; margin-bottom: 20px">
@@ -16,6 +16,7 @@
             <% end %>
             <br>Start date: <%= booking.rent_start.to_date %>
             <br>End date: <%= booking.rent_end.to_date %>
+            <br>Requested by: <%= booking.user.first_name %>
             <br>Status: <%= booking.status %>
             <%= button_to 'Approve', approve_booking_path(booking), class: "btn btn-success", method: :patch %>
             <%= button_to 'Decline', decline_booking_path(booking), class: "btn btn-danger", method: :patch %>
@@ -23,14 +24,14 @@
         </div>
       <% end %>
     <% else  %>
-      No bookings to show
+      <p class="text-center">No bookings to show</p>
     <% end %>
   </div>
 </div>
-
+<br>
 <div class="container" style="text-align: center;">
   <div class="row">
-    <h2>Approved/Declined Bookings</h2>
+    <h2>Past bookings</h2>
     <% if @incoming_bookings.where(status: ['approved', 'declined']).any? %>
       <% @incoming_bookings.where(status: ['approved', 'declined']).order(created_at: :desc).each do |booking| %>
         <div class="column" style="float:left; width: 100%; padding: 0 10px; display: block; margin-bottom: 20px">
@@ -42,21 +43,18 @@
             <br>Start date: <%= booking.rent_start.to_date %>
             <br>End date: <%= booking.rent_end.to_date %>
             <br>Status: <%= booking.status %>
-            <br>User: <%= booking.user.first_name %>
           </div>
         </div>
       <% end %>
     <% else %>
-      No bookings to show
+      <p class="text-center">No bookings to show</p>
     <% end %>
   </div>
 </div>
-
-
-<p>
+<br>
 <div class="container" style="text-align: center;">
   <div class="row">
-    <h2>Outgoing Bookings</h2>
+    <h2>My requested bookings</h2>
     <% if @outgoing_bookings.order(created_at: :desc).any?  %>
       <% @outgoing_bookings.order(created_at: :desc).each do |booking| %>
         <div class="column" style="float:left; width: 100%; padding: 0 10px; display: block; margin-bottom: 20px">
@@ -67,13 +65,13 @@
             <% end %>
             <br>Start date: <%= booking.rent_start.to_date %>
             <br>End date: <%= booking.rent_end.to_date %>
+            <br>Owner: <%= booking.user.first_name %>
             <br>Status: <%= booking.status %>
-            <br>User: <%= booking.user.first_name %>
           </div>
         </div>
       <% end %>
     <% else  %>
-      No bookings to show
+      <p class="text-center">No bookings to show</p>
     <% end %>
   </div>
 </div>
