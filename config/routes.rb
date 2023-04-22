@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # additional routes:
     member do
       patch :approve # This is for approval route
+      patch :decline
       # get :back # This is for a back button route
     end
   end

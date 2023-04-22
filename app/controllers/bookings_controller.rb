@@ -5,10 +5,17 @@ class BookingsController < ApplicationController
   # AT: Setup to get second create method working:
   # before_action :set_listing, except: [:create]
 
+  # AT: Advanced index:
   def index
-    # authorisation required x2 (listing made and listing wanted)
-    @bookings = Booking.all
+    @outgoing_bookings = Booking.where(user: current_user)
+    @incoming_bookings = Booking.includes(:listing).where(listing: { user: current_user })
   end
+
+  #  AT: Index working with basic approval:
+  # def index
+  #   # authorisation required x2 (listing made and listing wanted)
+  #   @bookings = Booking.all
+  # end
 
   def show
     @booking = Booking.find(params[:id])
@@ -109,18 +116,27 @@ class BookingsController < ApplicationController
 
   # AT: Approval method from stackoverflow
   def approve
-    # @booking = Booking.find_by_id(params[:id])
-    # raise
-    #  @booking.update(status: "approved")
-    #  raise
-    #  if @booking.status == "approved"
-    #   raise
-    #    flash[:success] = "Booking successfully approved"
-    #    redirect_to bookings_path
-    #  else
-    #    flash[:error] = "Booking not approved"
-    #    redirect_to bookings_path
-    #  end
+    @booking = Booking.find_by_id(params[:id])
+    @booking.update(status: "approved")
+    if @booking.status == "approved"
+      flash[:success] = "Booking successfully approved"
+      redirect_to bookings_path
+     else
+       flash[:error] = "Booking not approved"
+       redirect_to bookings_path
+     end
+  end
+
+  def decline
+    @booking = Booking.find_by_id(params[:id])
+    @booking.update(status: "declined")
+    if @booking.status == "declined"
+      flash[:success] = "Booking declined"
+      redirect_to bookings_path
+     else
+       flash[:error] = "Booking not declined"
+       redirect_to bookings_path
+    end
   end
 
   private
