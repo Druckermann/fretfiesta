@@ -1,4 +1,11 @@
 <h1>All Bookings </h1>
 
+<p>Details</p>
 
-  <%= link_to 'Approve', update_booking_path(booking), class: "button-xs success", method: :post %>
+
+<p>Bookings requested for my listings</p>
+<% @bookings.each do |booking| %>
+  <%= booking.rent_start %>
+  <%= booking.status %>
+  <%= link_to 'Approve', approve_booking_path(booking), class: "button-xs success" %>
+<% end %>

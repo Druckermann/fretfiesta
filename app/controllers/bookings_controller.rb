@@ -108,15 +108,19 @@ class BookingsController < ApplicationController
   end
 
   # AT: Approval method from stackoverflow
-  def update
-    @booking = Booking.find(params[:id])
-    if @booking.update(booking_params)
-      flash[:success] = "Booking successfully approved"
-      redirect_to bookings_path
-    else
-      flash[:error] = "Booking not approved"
-      redirect_to bookings_path
-    end
+  def approve
+    # @booking = Booking.find_by_id(params[:id])
+    # raise
+    #  @booking.update(status: "approved")
+    #  raise
+    #  if @booking.status == "approved"
+    #   raise
+    #    flash[:success] = "Booking successfully approved"
+    #    redirect_to bookings_path
+    #  else
+    #    flash[:error] = "Booking not approved"
+    #    redirect_to bookings_path
+    #  end
   end
 
   private
