@@ -19,7 +19,7 @@
   </div>
 
 <%# Al's third try on Thu 20/04 %>
-<div class="container">
+<div class="container-flatpickr px-0">
   <%= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
     <%= f.input :rent_start, as: :string, input_html: { data: { flatpickr_target: "rentStart" } } %>
     <%= f.input :rent_end, as: :string, input_html: { data: { flatpickr_target: "rentEnd" } }  %>
