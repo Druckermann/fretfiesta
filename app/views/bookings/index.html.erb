@@ -1,4 +1,80 @@
-<h1>All Bookings </h1>
+<div class="d-flex justify-content-center" style="text-shadow: 2px 2px 5px grey;">
+  <h1>All Bookings </h1>
+  <br>
+</div>
+
+<div class="container" style="text-align: center;">
+  <div class="row">
+    <h2>Pending Bookings</h2>
+    <% if @incoming_bookings.where(status: 'pending').any?  %>
+      <% @incoming_bookings.where(status: 'pending').each do |booking| %>
+        <div class="column" style="float:left; width: 100%; padding: 0 10px; display: block; margin-bottom: 20px">
+          <div class="card box=shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)" style="padding:16px; text-align: center; background-color: #FFFFFF; border: 2px solid black;">
+            <%= link_to booking.listing.name, listing_path(booking.listing), style: "color:black; font-size:18px; font-weight:bold;" %>
+            <% if booking.listing.photo.attached? %>
+              <%= cl_image_tag booking.listing.photo.key, height: 150, width: 150, crop: :fill, class:"mx-auto", style: "border-radius: 2%;" "box-shadow: 5px 5px 3px grey; border: 2px solid black;" %>
+            <% end %>
+            <br>Start date: <%= booking.rent_start.to_date %>
+            <br>End date: <%= booking.rent_end.to_date %>
+            <br>Status: <%= booking.status %>
+            <%= button_to 'Approve', approve_booking_path(booking), class: "btn btn-success", method: :patch %>
+            <%= button_to 'Decline', decline_booking_path(booking), class: "btn btn-danger", method: :patch %>
+          </div>
+        </div>
+      <% end %>
+    <% else  %>
+      No bookings to show
+    <% end %>
+  </div>
+</div>
+
+<div class="container" style="text-align: center;">
+  <div class="row">
+    <h2>Approved/Declined Bookings</h2>
+    <% if @incoming_bookings.where(status: ['approved', 'declined']).any? %>
+      <% @incoming_bookings.where(status: ['approved', 'declined']).order(created_at: :desc).each do |booking| %>
+        <div class="column" style="float:left; width: 100%; padding: 0 10px; display: block; margin-bottom: 20px">
+          <div class="card box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)" style="padding:16px; text-align: center; background-color: #FFFFFF; border: 2px solid black;">
+            <%= link_to booking.listing.name, listing_path(booking.listing), style: "color:black; font-size:18px; font-weight:bold;" %>
+            <% if booking.listing.photo.attached? %>
+              <%= cl_image_tag booking.listing.photo.key, height: 150, width: 150, crop: :fill, class:"mx-auto", style: "border-radius: 2%; box-shadow: 5px 5px 3px grey; border: 2px solid black;" %>
+            <% end %>
+            <br>Start date: <%= booking.rent_start.to_date %>
+            <br>End date: <%= booking.rent_end.to_date %>
+            <br>Status: <%= booking.status %>
+            <br>User: <%= booking.user.first_name %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      No bookings to show
+    <% end %>
+  </div>
+</div>
 
 
-  <%= link_to 'Approve', update_booking_path(booking), class: "button-xs success", method: :post %>
+<p>
+<div class="container" style="text-align: center;">
+  <div class="row">
+    <h2>Outgoing Bookings</h2>
+    <% if @outgoing_bookings.order(created_at: :desc).any?  %>
+      <% @outgoing_bookings.order(created_at: :desc).each do |booking| %>
+        <div class="column" style="float:left; width: 100%; padding: 0 10px; display: block; margin-bottom: 20px">
+          <div class="card box=shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)" style="padding:16px; text-align: center; background-color: #FFFFFF; border: 2px solid black;">
+            <%= link_to booking.listing.name, listing_path(booking.listing), style: "color:black; font-size:18px; font-weight:bold;" %>
+            <% if booking.listing.photo.attached? %>
+              <%= cl_image_tag booking.listing.photo.key, height: 150, width: 150, crop: :fill, class:"mx-auto", style: "border-radius: 2%;" "box-shadow: 5px 5px 3px grey; border: 2px solid black;" %>
+            <% end %>
+            <br>Start date: <%= booking.rent_start.to_date %>
+            <br>End date: <%= booking.rent_end.to_date %>
+            <br>Status: <%= booking.status %>
+            <br>User: <%= booking.user.first_name %>
+          </div>
+        </div>
+      <% end %>
+    <% else  %>
+      No bookings to show
+    <% end %>
+  </div>
+</div>
+<p>
