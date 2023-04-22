@@ -1,24 +1,27 @@
 <div class="d-flex justify-content-center">
   <h1>Create a new listing</h1>
 </div>
-
-<div class="new-guitar-container">
-  <div class= "container">
-    <%= simple_form_for (@listing) do |f| %>
-      <div class="listing-row">
-        <%= f.input :name, label: false, placeholder: "name" %>
-        <%= f.input :category, label: false, placeholder: "category" %>
-        <%= f.input :price, label: false, placeholder: "price" %>
+<div class="column d-flex justify-content-center">
+  <div class="card" style="width: 90%; padding: 0 10px; display: block; margin-bottom: 20px; border: 2px solid black;">
+    <div class="new-guitar-container">
+      <div class= "container bg-white py-3">
+        <%= simple_form_for (@listing) do |f| %>
+          <div class="listing-row">
+            <%= f.input :name, label: false, placeholder: "name of guitar" %>
+            <%= f.input :category, label: false, placeholder: "category" %>
+            <%= f.input :price, label: false, placeholder: "price" %>
+          </div>
+          <div class="listing-row">
+            <%= f.input :location, label: false, placeholder: "postcode" %>
+            <%= f.input :description, label: false, placeholder: "Add a description of your guitar!" %>
+          </div>
+          <div class="listing-row">
+            <label class="photo-label"></label>
+            <%= f.input :photo, as: :file %>
+            <%= f.button :submit, class:"btn btn-secondary" %>
+          </div>
+        <% end %>
       </div>
-      <div class="listing-row">
-        <%= f.input :location, label: false, placeholder: "location" %>
-        <%= f.input :description, label: false, placeholder: "Add a description of your guitar!" %>
-      </div>
-      <div class="listing-row">
-        <label class="photo-label"></label>
-        <%= f.input :photo, as: :file %>
-        <%= f.submit %>
-      </div>
-    <% end %>
+    </div>
   </div>
 </div>
