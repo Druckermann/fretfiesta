@@ -93,4 +93,4 @@ Rails.application.configure do
 end
 
 # AT: Added to try fixing Avatar.jpg error in Heroku Fri 21/04
-config.assets.precompile += %w[*.png *.jpg *.jpeg *.gif]
+# config.assets.precompile += %w[*.png *.jpg *.jpeg *.gif]

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :bookings, only: %i[index show new create] do
   # additional routes:
     member do
-      patch :update # This is for approval route
+      patch :approve # This is for approval route
       # get :back # This is for a back button route
     end
   end
