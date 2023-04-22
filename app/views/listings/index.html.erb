@@ -6,7 +6,7 @@
 <div class="container" style="text-align: center;">
 <%= form_tag listings_path, method: :get do %>
   <%= text_field_tag :search, params[:search], placeholder: "Search guitars", style: "width: 250px; padding: 10px; margin: 0; display: inline-block;" %>
-  <%= submit_tag "Search", name: nil, class: "btn btn-secondary", style: "margin-left: 10px; font-weight: bold; display: inline-block;" %>
+  <%= submit_tag "Search", name: nil, class: "btn btn-secondary", style: "margin-left: 10px; display: inline-block;" %>
 <% end %>
 <p><p>
 

@@ -2,7 +2,7 @@
   <h1>Guitars</h1>
 </div>
 <div class="row">
-  <div class="column">
+  <div class="column d-flex justify-content-center">
     <div class="card" style="text-align: center; width: 75%; padding: 0 10px; display: block; margin-bottom: 20px; border: 2px solid black;">
       <div >
       <p></p>
@@ -24,7 +24,7 @@
 
 <%# AT: chnaged this 16/04/23 10:22pm %>
 <div class="column" style="text-align: center;">
-  <%= link_to "Book now", new_booking_path(listing_id: @listing.id), class: "btn btn-custom", style: "background-color: #696969; color: white; font-weight: bold;" %>
+  <%= link_to "Book now", new_booking_path(listing_id: @listing.id), class: "btn btn-secondary" %>
 
-  <%= link_to "Return to guitars", listings_path, class: "btn btn-custom", style: "background-color: #696969; color: white; font-weight: bold;" %>
+  <%= link_to "Return to guitars", listings_path, class: "btn btn-secondary" %>
 </div>

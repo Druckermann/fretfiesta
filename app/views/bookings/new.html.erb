@@ -9,7 +9,7 @@
 <% end %>
 
 
-<div class="container">
+<div class="container bg-white">
   <div class="listing-details mb-5">
     <h2>What you are booking:</h2>
     <p><%= @listing.name %><p>
@@ -24,7 +24,7 @@
     <%= f.input :rent_start, as: :string, input_html: { data: { flatpickr_target: "rentStart" } } %>
     <%= f.input :rent_end, as: :string, input_html: { data: { flatpickr_target: "rentEnd" } }  %>
     <%= f.input :listing_id, as: :hidden, input_html: { value: @listing.id } %>
-    <%= f.button :submit, class: "btn btn-primary" %>
+    <%= f.button :submit, class: "btn btn-secondary"  %>
   <% end %>
 </div>
 
@@ -57,7 +57,7 @@
   <div class="container">
     <div class="d-flex justify-content-around">
       <%# <%= link_to "Send booking request", '#', class: "btn btn-primary" %>
-      <%= link_to "Back to listing", :back, class: "btn btn-gradient" %>
+      <%= link_to "Back to listing", :back, class: "btn btn-secondary" %>
     </div>
   </div>
 </div>
