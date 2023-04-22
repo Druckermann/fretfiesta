@@ -3,28 +3,23 @@
 </div>
 <div class="row">
   <div class="column d-flex justify-content-center">
-    <div class="card" style="text-align: center; width: 90%; padding: 0 10px; display: block; margin-bottom: 20px; border: 2px solid black;">
-      <div >
-      <p></p>
+    <div class="card" style="text-align: center; width: 90%; padding: 10px; display: block; margin-bottom: 20px; border: 2px solid black;">
+      <div class="listing-top">
       <h5 style="font-weight: bold; font-size: 25px;"><%= @listing.name %></h5>
       <h5><%= @listing.category %></h5>
         <%= image_tag @listing.photo, style: "box-shadow: 5px 5px 3px grey; border-radius: 4px; width: 200px; object-fit: cover; height: 100%; border: 2px solid black;" if @listing.photo.attached? %>
-        <div class="column" style="text-align: justify; padding: 0 10 px">
-          <p></p>
+        <div class="column" style="text-align: justify; padding: 10px">
           <p><%= @listing.description %></p>
         </div>
       <p>Price per day: $<%= @listing.price %></p>
       <p>Rent from: <%= @listing.user.first_name %></p>
       <p>Postcode: <%= @listing.location %></p>
       <p>This guitar is rated <%= @listing.rating %>/10 by other users</p>
+      <div class="column pb-3" style="text-align: center;">
+        <%= link_to "Book now", new_booking_path(listing_id: @listing.id), class: "btn btn-secondary" %>
+        <%= link_to "Return to guitars", listings_path, class: "btn btn-secondary" %>
+      </div>
      </div>
     </div>
   </div>
-</div>
-
-<%# AT: chnaged this 16/04/23 10:22pm %>
-<div class="column" style="text-align: center;">
-  <%= link_to "Book now", new_booking_path(listing_id: @listing.id), class: "btn btn-secondary" %>
-
-  <%= link_to "Return to guitars", listings_path, class: "btn btn-secondary" %>
 </div>

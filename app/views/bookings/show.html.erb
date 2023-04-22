@@ -7,10 +7,12 @@
     <div class="new-guitar-container">
       <p>Your booking is pending...</p>
 
-      <p>Details for booking</p>
-      <p><strong>Listing:</strong> <%= @booking.listing %></p>
-      <p><strong>Status:</strong> <%= @booking.status %></p>
-
+      <p class="fs-5"><strong>Booking Details</strong></p>
+      <p><strong>Listing:</strong> <%= @booking.listing.name %></p>
+      <p><strong>Rented from:</strong> <%= @booking.listing.user.first_name %> <%= @booking.listing.user.last_name %></p>
+      <p><strong>Start Date: </strong><%= @booking.rent_start.to_date %></p>
+      <p><strong>End Date: </strong><%= @booking.rent_end.to_date %></p>
+      <%# <p><strong>Booking Price: </strong><%= @booking.total_price %>
       <%= link_to "See all bookings", bookings_path, class: "btn btn-secondary" %>
     </div>
   </div>
