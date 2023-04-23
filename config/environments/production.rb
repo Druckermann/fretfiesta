@@ -94,3 +94,6 @@ end
 
 # AT: Added to try fixing Avatar.jpg error in Heroku Fri 21/04
 # config.assets.precompile += %w[*.png *.jpg *.jpeg *.gif]
+
+# AT: Added to try fixing Heruko errors re:Cloudinary Sun 23/04
+  config.active_storage.service = :cloudinary
